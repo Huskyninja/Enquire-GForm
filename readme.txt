@@ -47,6 +47,7 @@ Select "Send a debug email" to enable this feature, and enter a valid email unde
 * added placeholder to languages directory
 * finally fixed scripts and styles
 * restricted phone field mapping to phone or hidden
+* updated author value since sage age is no longer supporting plugin
 
 = 0.4.1 =
 * updated laugnauge settings to main config form

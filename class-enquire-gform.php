@@ -316,7 +316,7 @@ class EnquireGform extends GFAddOn {
 	 * Configures the settings which should be rendered on the add-on settings tab.
 	 *
 	 * @return array
-	 */
+	 */ 
     public function plugin_settings_fields() {
 		
 		// echo 'There are no global settings for Enquire GForm.';

@@ -45,7 +45,7 @@ class Enquire_Gform_Bootstrap {
     }
  
 }
- 
+
 function enquire_gform() {
     return EnquireGform::get_instance();
 }
