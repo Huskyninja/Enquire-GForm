@@ -2,9 +2,9 @@
 /*
 Plugin Name: Enquire Gravity Forms
 Description: Send form data to the Enquire CRM using Gravity Form's Add-on Framework
-version: 0.4.1
-Author: Sage Age
-Author URI: https://www.sageagestrategies.com/
+version: 0.5
+Author: Husky Ninja
+Author URI: https://www.husky.ninja
 License: GPLv3 or later
 Text Domain: enquire-gform
 Domain Path: /languages
@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 */
 
-define( 'ENQUIRE_GFORM_VERSION', '0.4.1' );
+define( 'ENQUIRE_GFORM_VERSION', '0.5' );
  
 add_action( 'gform_loaded', array( 'Enquire_Gform_Bootstrap', 'load' ), 5 );
  

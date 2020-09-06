@@ -1,9 +1,9 @@
 === Plugin Name ===
 Plugin Name: Enquire Gravity Forms
 Description: Send form data to the Enquire CRM using Gravity Form's Add-on Framework
-version: 0.4.1
-Author: Sage Age
-Author URI: https://www.sageagestrategies.com/
+version: 0.5
+Author: Husky Ninja
+Author URI: https://www.husky.ninja
 License: GPLv3 or later
 Text Domain: enquire-gform
 Domain Path: /languages
@@ -28,10 +28,10 @@ To map the form fields, select the relevant Field (to be mapped for Enquire) to 
 
 The form field must be of the correct type. The mapping is as follows:
 
-First Name -> textfield
-Last Name -> textfield
-Email Address -> email
-Home Phone -> phone
+First Name -> name, text or hidden
+Last Name -> name, text or hidden
+Email Address -> email or hidden
+Home Phone -> phone or hidden
 
 So make sure when creating your form that you use the correct form field types for the Emfluence field mapping.
 
@@ -42,6 +42,11 @@ You can send a debug email for all submissions that contain logging information 
 Select "Send a debug email" to enable this feature, and enter a valid email under "Debug email address". This will send an email containing logging information for all forms submitted to Enquire.
 
 == Changelog ==
+
+= 0.5 =
+* added placeholder to languages directory
+* finally fixed scripts and styles
+* restricted phone field mapping to phone or hidden
 
 = 0.4.1 =
 * updated laugnauge settings to main config form

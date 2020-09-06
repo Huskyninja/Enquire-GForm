@@ -226,19 +226,14 @@ class EnquireGform extends GFAddOn {
     public function scripts() {
         $scripts = array(
             array(
-                'handle'  => 'my_script_js',
-                'src'     => $this->get_base_url() . '/js/my_script.js',
+                'handle'  => 'enquire_gform_js',
+                'src'     => $this->get_base_url() . '/js/enquire_gform.js',
                 'version' => $this->_version,
                 'deps'    => array( 'jquery' ),
-                'strings' => array(
-                    'first'  => esc_html__( 'First Choice', 'enquire_gform' ),
-                    'second' => esc_html__( 'Second Choice', 'enquire_gform' ),
-                    'third'  => esc_html__( 'Third Choice', 'enquire_gform' )
-                ),
+                'strings' => array(),
                 'enqueue' => array(
                     array(
-                        'admin_page' => array( 'form_settings' ),
-                        'tab'        => 'enquire_gform'
+                        'admin_page' => array( 'plugin_page' )
                     )
                 )
             ),
@@ -256,11 +251,13 @@ class EnquireGform extends GFAddOn {
     public function styles() {
         $styles = array(
             array(
-                'handle'  => 'my_styles_css',
-                'src'     => $this->get_base_url() . '/css/my_styles.css',
+                'handle'  => 'enquire_gform_css',
+                'src'     => $this->get_base_url() . '/css/enquire_gform.css',
                 'version' => $this->_version,
                 'enqueue' => array(
-                    array( 'field_types' => array( 'poll' ) )
+                    array( 
+						'admin_page' => array( 'plugin_page' ) 
+					)
                 )
             )
         );
@@ -301,11 +298,11 @@ class EnquireGform extends GFAddOn {
 		$instructions .= '<p>By default this plugin uses Remote Post (wp_remote_post) to send form data. This can be changed to to use cURL. If you have cURL installed and wish to use this method, select this checkbox.</p>';
 		$instructions .= '<p>To map the form fields, select the relevant Field (to be mapped for Enquire) to the Form Field (from the Gravity Form).</p>';
 		$instructions .= '<p>The form field must be of the correct type. The mapping is as follows:</p>';
-		$instructions .= '<ul>';
-		$instructions .= '<li>First Name -> textfield</li>';
-		$instructions .= '<li>Last Name -> textfield</li>';
-		$instructions .= '<li>Email Address -> email</li>';
-		$instructions .= '<li>Home Phone -> phone</li>';
+		$instructions .= '<ul class="instruction">';
+		$instructions .= '<li>First Name -> name, text or hidden</li>';
+		$instructions .= '<li>Last Name -> name, text or hidden</li>';
+		$instructions .= '<li>Email Address -> email or hidden</li>';
+		$instructions .= '<li>Home Phone -> phone or hidden</li>';
 		$instructions .= '</ul>';
 		$instructions .= '<p>So make sure when creating your form that you use the correct form field types for the Enquire field mapping.</p>';
 		$instructions .= '<h3>Sending a Debug Email</h3>';
@@ -482,7 +479,7 @@ class EnquireGform extends GFAddOn {
 				'name' => 'phone',
 				'label' => esc_html__('Phone', 'enquire_gform'),
 				'required' => false,
-				'field_type' => array('name', 'phone', 'hidden'),
+				'field_type' => array('phone', 'hidden'),
 				'tooltip' => esc_html__('Must be a phone field type', 'enquire_gform'),
 				'default_value' => $this->get_first_field_by_type( 'phone' ),
 			),
