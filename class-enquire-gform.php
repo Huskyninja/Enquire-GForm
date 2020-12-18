@@ -496,7 +496,7 @@ class EnquireGform extends GFAddOn {
 				'required' => false,
 				'field_type' => array('textarea', 'text', 'hidden'),
 				'tooltip' => esc_html__('Must be a textarea or text field type', 'enquire_gform'),
-				'default_value' => $this->get_first_field_by_type( 'phone' ),
+				'default_value' => $this->get_first_field_by_type( 'textarea' ),
 			),
 		);
 	}

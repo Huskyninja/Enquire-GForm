@@ -1,7 +1,7 @@
 === Plugin Name ===
 Plugin Name: Enquire Gravity Forms
 Description: Send form data to the Enquire CRM using Gravity Form's Add-on Framework
-version: 0.6
+version: 0.6.1
 Author: Husky Ninja
 Author URI: https://www.husky.ninja
 License: GPLv3 or later
@@ -43,6 +43,9 @@ You can send a debug email for all submissions that contain logging information 
 Select "Send a debug email" to enable this feature, and enter a valid email under "Debug email address". This will send an email containing logging information for all forms submitted to Enquire.
 
 == Changelog ==
+
+= 0.6.1 =
+* corrected default_value for Message field
 
 = 0.6 =
 * added Message field to form options & updated related instructions
