@@ -107,6 +107,12 @@ class EnquireGform extends GFAddOn {
 				$phone = $entry[$map_phone];
 				$quick_query['HomePhone'] = $phone;
 			}
+			
+			if (isset($settings['enquire_fields_message']) && !empty($settings['enquire_fields_message'])) {
+				$map_message = $settings['enquire_fields_message'];
+				$message = $entry[$map_message];
+				$quick_query['Message'] = $message;
+			}
 
 			$quick_query['CommunityName'] = $group_ids;
 
@@ -303,6 +309,7 @@ class EnquireGform extends GFAddOn {
 		$instructions .= '<li>Last Name -> name, text or hidden</li>';
 		$instructions .= '<li>Email Address -> email or hidden</li>';
 		$instructions .= '<li>Home Phone -> phone or hidden</li>';
+		$instructions .= '<li>Message -> textarea, text or hidden</li>';
 		$instructions .= '</ul>';
 		$instructions .= '<p>So make sure when creating your form that you use the correct form field types for the Enquire field mapping.</p>';
 		$instructions .= '<h3>Sending a Debug Email</h3>';
@@ -481,6 +488,14 @@ class EnquireGform extends GFAddOn {
 				'required' => false,
 				'field_type' => array('phone', 'hidden'),
 				'tooltip' => esc_html__('Must be a phone field type', 'enquire_gform'),
+				'default_value' => $this->get_first_field_by_type( 'phone' ),
+			),
+			array(
+				'name' => 'message',
+				'label' => esc_html__('Message', 'enquire_gform'),
+				'required' => false,
+				'field_type' => array('textarea', 'text', 'hidden'),
+				'tooltip' => esc_html__('Must be a textarea or text field type', 'enquire_gform'),
 				'default_value' => $this->get_first_field_by_type( 'phone' ),
 			),
 		);

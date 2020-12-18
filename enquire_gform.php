@@ -2,7 +2,7 @@
 /*
 Plugin Name: Enquire Gravity Forms
 Description: Send form data to the Enquire CRM using Gravity Form's Add-on Framework
-version: 0.5
+version: 0.6
 Author: Husky Ninja
 Author URI: https://www.husky.ninja
 License: GPLv3 or later
@@ -27,7 +27,7 @@ Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
 
 */
 
-define( 'ENQUIRE_GFORM_VERSION', '0.5' );
+define( 'ENQUIRE_GFORM_VERSION', '0.6' );
  
 add_action( 'gform_loaded', array( 'Enquire_Gform_Bootstrap', 'load' ), 5 );
  
