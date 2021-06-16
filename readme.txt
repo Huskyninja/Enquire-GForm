@@ -1,7 +1,7 @@
 === Plugin Name ===
 Plugin Name: Enquire Gravity Forms
 Description: Send form data to the Enquire CRM using Gravity Form's Add-on Framework
-version: 0.6.1
+version: 0.7
 Author: Husky Ninja
 Author URI: https://www.husky.ninja
 License: GPLv3 or later
@@ -33,8 +33,11 @@ Last Name -> name, text or hidden
 Email Address -> email or hidden
 Home Phone -> phone or hidden
 Message -> textarea, text or hidden
+Community Names -> select
 
 So make sure when creating your form that you use the correct form field types for the Emfluence field mapping.
+
+If you map the Community Names field, this value will overwrite the required Community Names for the form. This field is provided to allow for multiple communities to be assigned to a single form (and selected by an end user). When mapping this field, please ensure that the Value (and not the Label) of the field is set to a valid Community Name as provided by Enquire. Please note that the Community Names is still a required field in the form's settings.
 
 Sending a Debug Email
 
@@ -43,6 +46,9 @@ You can send a debug email for all submissions that contain logging information 
 Select "Send a debug email" to enable this feature, and enter a valid email under "Debug email address". This will send an email containing logging information for all forms submitted to Enquire.
 
 == Changelog ==
+
+= 0.7 =
+* added community bypass field
 
 = 0.6.1 =
 * corrected default_value for Message field

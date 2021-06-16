@@ -115,7 +115,15 @@ class EnquireGform extends GFAddOn {
 			}
 
 			$quick_query['CommunityName'] = $group_ids;
-
+			
+			if ( isset($settings['enquire_fields_over_community']) && !empty($settings['enquire_fields_over_community']) ) {
+				$map_community = $settings['enquire_fields_over_community'];
+				$trim_map_community = trim($entry[$map_community]);
+				if ( !empty($trim_map_community) ) {
+					$quick_query['CommunityName'] = $trim_map_community;
+				}
+			}
+			
 			$json_query = json_encode($quick_query);
 			// write_log($json_query);
 			
@@ -310,8 +318,10 @@ class EnquireGform extends GFAddOn {
 		$instructions .= '<li>Email Address -> email or hidden</li>';
 		$instructions .= '<li>Home Phone -> phone or hidden</li>';
 		$instructions .= '<li>Message -> textarea, text or hidden</li>';
+		$instructions .= '<li>Community Names -> select</li>';
 		$instructions .= '</ul>';
 		$instructions .= '<p>So make sure when creating your form that you use the correct form field types for the Enquire field mapping.</p>';
+		$instructions .= '<p>If you map the Community Names field, this value will overwrite the required Community Names for the form. This field is provided to allow for multiple communities to be assigned to a single form (and selected by an end user). When mapping this field, please ensure that the Value (and not the Label) of the field is set to a valid Community Name as provided by Enquire. Please note that the Community Names is still a required field in the form\'s settings.</p>';
 		$instructions .= '<h3>Sending a Debug Email</h3>';
 		$instructions .= '<p>You can send a debug email for all submissions that contain logging information if you do not have logging enabled. This setting can be found under admin -> Forms -> Settings -> Enquire GForm.</p>';
 		$instructions .= '<p>Select "Send a debug email" to enable this feature, and enter a valid email under "Debug email address". This will send an email containing logging information for all forms submitted to Enquire.</p>';
@@ -497,6 +507,13 @@ class EnquireGform extends GFAddOn {
 				'field_type' => array('textarea', 'text', 'hidden'),
 				'tooltip' => esc_html__('Must be a textarea or text field type', 'enquire_gform'),
 				'default_value' => $this->get_first_field_by_type( 'textarea' ),
+			),
+			array(
+				'name' => 'over_community',
+				'label' => esc_html__('Community Names', 'enquire_gform'),
+				'required' => false,
+				'field_type' => array('select'),
+				'tooltip' => esc_html__('Overwrites form\'s Community Names. Must be a select field type.', 'enquire_gform'),
 			),
 		);
 	}
