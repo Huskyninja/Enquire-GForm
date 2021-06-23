@@ -124,6 +124,13 @@ class EnquireGform extends GFAddOn {
 				}
 			}
 			
+			if ( isset($settings['activity_type_name']) && !empty($settings['activity_type_name']) ) {
+				$trim_activity_type_name = trim($settings['activity_type_name']);
+				if ( !empty($trim_activity_type_name) ) {
+					$quick_query['ActivityTypeName'] = $trim_activity_type_name;
+				}
+			}
+			
 			$json_query = json_encode($quick_query);
 			// write_log($json_query);
 			
@@ -309,6 +316,7 @@ class EnquireGform extends GFAddOn {
 		$instructions .= '<p>Select the "Send this form to Enquire" checkbox to attach the form. You will need a Subscription Key.</p>';
 		$instructions .= '<p>The Enquire Endpoint URL may be edited if necessary.</p>';
 		$instructions .= '<p>Add any Enquire Community Names under Community Names. If you have more than one, seperate them with a comma. Community Names are provided by Enquire.</p>';
+		$instructions .= '<p>You can add an Activity Type Name if necessary. Enquire will default to the value \'Web Form\' if nothing is entered. This may be important if you are tracking by which sources leads are entered.</p>';
 		$instructions .= '<p>By default this plugin uses Remote Post (wp_remote_post) to send form data. This can be changed to to use cURL. If you have cURL installed and wish to use this method, select this checkbox.</p>';
 		$instructions .= '<p>To map the form fields, select the relevant Field (to be mapped for Enquire) to the Form Field (from the Gravity Form).</p>';
 		$instructions .= '<p>The form field must be of the correct type. The mapping is as follows:</p>';
@@ -429,6 +437,13 @@ class EnquireGform extends GFAddOn {
 						'tooltip' => esc_html__('Community Names comma delinated.', 'enquire_gform'),
 						'class' => 'small',
 						'required' => true,
+					),
+					array(
+						'label' => esc_html__('Activity Type Name', 'enquire_gform'),
+						'type' => 'text',
+						'name' => 'activity_type_name',
+						'tooltip' => esc_html__('The name of the activity type that gets created as Inquiry. It will default to type \'Web Form\' if nothing is entered.', 'enquire_gform'),
+						'required' => false,
 					),
 					array(
 						'label' => esc_html__('Use cURL', 'enquire_gform'),

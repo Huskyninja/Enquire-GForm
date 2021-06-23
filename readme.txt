@@ -1,7 +1,7 @@
 === Plugin Name ===
 Plugin Name: Enquire Gravity Forms
 Description: Send form data to the Enquire CRM using Gravity Form's Add-on Framework
-version: 0.7
+version: 0.8
 Author: Husky Ninja
 Author URI: https://www.husky.ninja
 License: GPLv3 or later
@@ -21,6 +21,8 @@ Select the "Send this form to Enquire" checkbox to attach the form. You will nee
 The Enquire Endpoint URL may be edited if necessary.
 
 Add any Enquire Community Names under Community Names. If you have more than one, seperate them with a comma. Community Names are provided by Enquire.
+
+You can add an Activity Type Name if necessary. Enquire will default to the value 'Web Form' if nothing is entered. This may be important if you are tracking by which sources leads are entered.
 
 By default this plugin uses Remote Post (wp_remote_post) to send form data. This can be changed to to use cURL. If you have cURL installed and wish to use this method, select this checkbox.
 
@@ -46,6 +48,9 @@ You can send a debug email for all submissions that contain logging information 
 Select "Send a debug email" to enable this feature, and enter a valid email under "Debug email address". This will send an email containing logging information for all forms submitted to Enquire.
 
 == Changelog ==
+
+= 0.8 =
+* added ActivityTypeName
 
 = 0.7 =
 * added community bypass field
